@@ -55,11 +55,13 @@ function slider({
       slidesToScrollOriginal = slidesScroll;
     }
 
-    createDots();
-    dotClick(0);
+    if (dots) {
+      createDots();
+      dotClick(0);
+    }
 
     if (responsive) {
-      setDots();
+      if (dots) setDots();
       let biggestBreakPoint = 0;
       slider_transitionx.style.transform = `translateX(-0px)`;
 
@@ -130,9 +132,11 @@ function slider({
     }
 
     function setDots() {
-      clearDots();
-      createDots();
-      dotClick(0);
+      if (dots) {
+        clearDots();
+        createDots();
+        dotClick(0);
+      }
     }
 
     // Slide Scroll

@@ -2,14 +2,32 @@
   .preview {
     background-image: url(../images/preview/bg-small.png);
   }
+
+  .latest-works {
+    &__item {
+      width: calc(100% / 3);
+    }
+  }
 }
 
 @media(max-width: 992px) {
   .preview {
     background-position: 80% 100%;
   }
+
+  .latest-works {
+    &__item {
+      width: calc(100% / 2);
+    }
+  }
 }
 
 @media(max-width: 768px) {}
 
-@media(max-width: 576px) {}
+@media(max-width: 576px) {
+  .latest-works {
+    &__item {
+      width: 100%;
+    }
+  }
+}
