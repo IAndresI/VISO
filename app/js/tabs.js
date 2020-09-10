@@ -37,7 +37,6 @@ function tabs({
                 temp++;
             }
         }
-
         showTab(tabToShow);
         for (let i = 0; i < tab_buttons.length; i++) {
             tab_buttons[i].addEventListener("click", function (e) {

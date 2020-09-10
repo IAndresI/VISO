@@ -4,9 +4,9 @@ import tabs from './tabs';
 document.addEventListener("DOMContentLoaded", function () {
   slider({
     slider__item: ".expertise__item",
-    slider__translateX: ".expertise__translatex",
     slidesToShow: 3,
     slidesToScroll: 3,
+    speed: 700,
     responsive: [{
         breakPoint: 1160,
         slidesToShow: 2,
@@ -19,6 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     ]
   });
+  slider({
+    slider__item: ".review__item",
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 700,
+    slider__button__next: ".review__button--next",
+    slider__button__prev: ".review__button--prev",
+    fade: true,
+    dots: false
+  });
+
+
   tabs({
     button: ".latest-works__button",
     content: ".latest-works__item",
@@ -27,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     animate: true,
     tabToShow: 0
   });
+
 
   let planButtons = document.querySelectorAll(".plan__button"),
     planItems = document.querySelectorAll(".plan__item"),
