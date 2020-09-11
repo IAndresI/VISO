@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       if (element.getAttribute("data-price") == "monthly") {
-        planActiveLine.style.transform = "translate(94%, 0)";
+        planActiveLine.style.transform = "translate(101%, 0)";
         planItems.forEach(elements => {
           elements.classList.add("plan__item--monthly");
         });
