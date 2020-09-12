@@ -2,6 +2,11 @@
 @import "vars";
 @import "global";
 
+.noscroll {
+  overflow-y: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
 .title {
   text-align: center;
   max-width: 725px;
@@ -57,9 +62,9 @@
 
 .header {
   position: absolute;
+  z-index: 1;
   top: 20px;
   left: 50%;
-  max-width: 1140px;
   width: 100%;
   transform: translate(-50%, 0);
 
@@ -74,6 +79,8 @@
     align-items: center;
     margin-right: 60px;
     height: 100%;
+    transition: all 1s;
+    overflow: hidden;
   }
 
   &__link {
@@ -133,6 +140,79 @@
     }
   }
 
+  &__line {
+    height: 3px;
+    width: 40px;
+    background-color: $red;
+    position: relative;
+    transition: all .5s;
+
+    &:after,
+    &:before {
+      position: absolute;
+      content: "";
+      top: -15px;
+      height: 4px;
+      width: 40px;
+      background-color: $red;
+      left: 0;
+      transition: all .5s;
+    }
+
+    &:before {
+      top: auto;
+      bottom: -15px;
+    }
+
+    &--close {
+      height: 0;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg)
+      }
+
+      &::after {
+        top: 0;
+        transform: rotate(-45deg)
+      }
+    }
+  }
+
+  &__nav-mini {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    height: 40px;
+    display: none;
+    z-index: 1;
+
+    &:hover,
+    &:focus {
+      outline: transparent;
+
+      .header__line {
+        background-color: $purple-dark;
+
+        &:after,
+        &:before {
+          background-color: $purple-dark;
+        }
+      }
+    }
+
+    &:active {
+      .header__line {
+        background-color: $red;
+
+        &:after,
+        &:before {
+          background-color: $red;
+        }
+      }
+    }
+  }
+
   &__phone {
     box-shadow: 0px 8px 10px 0px rgba(255, 59, 51, 0.25);
     padding: 20px 40px 20px 60px;
@@ -141,6 +221,7 @@
     position: relative;
     color: #ffffff;
     font-weight: 500;
+    max-height: 65px;
     transition: all .6s;
 
     &:before {
@@ -289,15 +370,16 @@
   &__description {
     display: flex;
     margin-bottom: 180px;
+    justify-content: center;
   }
 
   &__text {
-    min-width: 555px;
+    max-width: 555px;
+    margin-left: 100px;
   }
 
   &__image {
-    max-width: 890px;
-    height: 100%;
+    height: 550px;
     background-position: left;
     position: relative;
     left: 20px;
@@ -311,7 +393,8 @@
     position: relative;
     color: #ffffff;
     padding-left: 60px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
+    padding-top: 15px;
 
     &:before {
       content: "\f00c";
@@ -322,7 +405,8 @@
       width: 40px;
       background-color: rgba(255, 255, 255, 0.1);
       left: 0;
-      top: 4px;
+      top: 50%;
+      transform: translate(0, -50%);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -400,6 +484,7 @@
   }
 
   &__item {
+    overflow: hidden;
     padding: 60px 30px;
     border-radius: 20px;
     max-width: 360px;
@@ -410,9 +495,10 @@
 
   &__image {
     height: 220px;
-    width: 240px;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
     margin: 0 auto 30px;
   }
 
@@ -429,6 +515,7 @@
     list-style: none;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   &__dot {
@@ -471,6 +558,8 @@
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__tag {
@@ -569,7 +658,7 @@
   }
 
   &__text {
-    font-size: 40px;
+    font-size: 35px;
     color: #ffffff;
     margin-right: 130px;
     font-weight: 700;
@@ -599,7 +688,7 @@
 
 .team {
 
-  padding: 130px;
+  padding: 130px 0;
 
   &__list {
     display: flex;
@@ -721,13 +810,22 @@
 
   &__title {
     margin: 0;
-    min-width: 585px;
+    width: 60%;
+    margin-left: 19%;
+    max-width: 585px;
+  }
+
+  &__image-container {
+    width: 53%;
   }
 
   &__image {
-    min-width: 100%;
     height: 530px;
+    width: 100%;
+    object-fit: cover;
     background-color: #bbbbbb;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
@@ -772,6 +870,7 @@
     border: none;
     cursor: pointer;
     border-radius: 55px;
+    transition: all .5s;
 
     &--active {
       color: #ffffff;
@@ -799,14 +898,17 @@
 
   &__list {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__item {
-    max-width: 360px;
+    max-width: 350px;
     box-shadow: 0px 0px 20px 0px rgba(255, 59, 51, 0.12);
     margin-right: 30px;
     padding: 60px 30px;
     text-align: center;
+    margin-bottom: 30px;
 
     &:last-child {
       margin-right: 0;
@@ -816,7 +918,7 @@
   &__image {
     background-repeat: no-repeat;
     height: 200px;
-    width: 290px;
+    width: 100%;
     background-size: 100% 100%;
     margin-bottom: 40px;
   }
@@ -869,6 +971,7 @@
   padding-bottom: 130px;
   position: relative;
   z-index: 15;
+  overflow: hidden;
 
   &::before {
     content: "";
@@ -1078,11 +1181,13 @@
     display: flex;
     justify-content: space-between;
     color: #69798d;
+    flex-wrap: wrap;
   }
 
   &__likes {
     position: relative;
     padding-left: 20px;
+    margin-right: 20px;
 
     &::before {
       content: "\f087";
@@ -1109,6 +1214,7 @@
   &__type {
     position: relative;
     padding-left: 25px;
+    margin-right: 20px;
 
     &::before {
       content: "\f115";

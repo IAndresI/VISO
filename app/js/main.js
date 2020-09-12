@@ -30,14 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
     dots: false
   });
 
-
   tabs({
     button: ".latest-works__button",
     content: ".latest-works__item",
     activeClass: ".latest-works__button--active",
     noContentAlert: ".latest-works__nothing-find",
     animate: true,
-    tabToShow: 0
+    tabToShow: 0,
+    animateSpeed: 500
   });
 
 
@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (element == e.target) element.classList.add("plan__button--active");
         else element.classList.remove("plan__button--active");
       });
-
       if (element.getAttribute("data-price") == "monthly") {
         planActiveLine.style.transform = "translate(101%, 0)";
         planItems.forEach(elements => {
@@ -66,5 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     });
+  });
+
+  let menuButton = document.querySelector(".header__nav-mini"),
+    menuButtonLine = document.querySelector(".header__line"),
+    menu = document.querySelector(".header__list");
+
+  menuButton.addEventListener("click", function () {
+    menuButtonLine.classList.toggle("header__line--close");
+    menu.classList.toggle("header__list--open");
+    document.documentElement.classList.toggle("noscroll");
   });
 });

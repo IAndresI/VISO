@@ -4,7 +4,8 @@ function tabs({
     activeClass,
     animate,
     noContentAlert,
-    tabToShow
+    tabToShow,
+    animateSpeed = 200
 }) {
     let tab_buttons = document.querySelectorAll(button),
         tab_content = document.querySelectorAll(content),
@@ -38,6 +39,9 @@ function tabs({
             }
         }
         showTab(tabToShow);
+        for (let j = 0; j < tab_content.length; j++) {
+            tab_content[j].style.transition = `transform ${animateSpeed/1000}s`;
+        }
         for (let i = 0; i < tab_buttons.length; i++) {
             tab_buttons[i].addEventListener("click", function (e) {
                 if (!e.target.classList.contains(activeClass)) {
@@ -54,18 +58,17 @@ function tabs({
 
                             function animation() {
                                 let currentTime = performance.now();
-                                if (currentTime - lastTime >= 200) {
-                                    tab_content[j].style.transition = "transform .2s";
+                                if (currentTime - lastTime >= (animateSpeed / 2)) {
                                     tab_content[j].style.display = "none";
                                     if ((tab_content[j].getAttribute("data-content") === tab_buttons[i].getAttribute("data-tab")) || (tab_buttons[i].getAttribute("data-tab") === "all")) {
                                         tab_content[j].style.display = "block";
-                                        if (currentTime - lastTime >= 400) {
+                                        if (currentTime - lastTime >= animateSpeed) {
                                             tab_content[j].style.transform = "scaleX(1) scaleY(1)";
                                             cancelAnimationFrame(animateID);
                                         }
                                     }
                                 }
-                                if (currentTime - lastTime < 400) {
+                                if (currentTime - lastTime < animateSpeed) {
                                     animateID = requestAnimationFrame(animation);
                                 }
                             }
