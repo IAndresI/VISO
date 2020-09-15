@@ -53,6 +53,37 @@
 
 @media(max-width: 1200px) {
 
+  .blog {
+    &__inner {
+      flex-direction: column;
+    }
+
+    &__aside {
+      order: 0;
+      max-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    &__list {
+      max-width: 100%;
+    }
+
+    &__pagination {
+      justify-content: center;
+    }
+  }
+
+  .aside {
+    &__item {
+      max-width: 360px;
+      width: 100%;
+      margin: 0 15px 30px;
+    }
+  }
+
   .footer {
     &__inner {
       flex-wrap: wrap;
@@ -268,6 +299,23 @@
 
 @media(max-width: 768px) {
 
+  .blog {
+    &__statistic {
+      flex-wrap: wrap;
+    }
+
+    &__statistic-item {
+      margin-bottom: 10px;
+    }
+  }
+
+  .aside {
+
+    &__item {
+      max-width: 100%;
+    }
+  }
+
   .news {
     &__inner {
       flex-direction: column;
@@ -323,6 +371,62 @@
 }
 
 @media(max-width: 576px) {
+
+  .blog {
+
+    &__link {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__item {
+      min-height: 100%;
+    }
+
+    &__image {
+      height: 200px;
+    }
+
+    &__statistic {
+
+      justify-content: center;
+    }
+
+    &__statistic-item {
+      margin: 0 20px 10px;
+      text-align: center;
+    }
+  }
+
+  .aside {
+    &__inner {
+      padding: 15px;
+    }
+  }
+
+  .pagination {
+    &__link {
+      margin-right: 10px;
+    }
+
+    &__button {
+      margin-right: 10px;
+
+      &--next {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .breadcrumps {
+    &__item {
+      font-size: 20px;
+    }
+  }
 
   .team {
     padding: 50px 0;
@@ -480,6 +584,18 @@
 
     &__item {
       width: 100%;
+    }
+  }
+}
+
+@media(max-width: 470px) {
+  .blog {
+    &__statistic {
+      flex-direction: column;
+    }
+
+    &__statistic-item {
+      margin: 0 0 10px;
     }
   }
 }
