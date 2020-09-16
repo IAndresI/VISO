@@ -61,6 +61,7 @@
     &__aside {
       order: 0;
       max-width: 100%;
+      min-width: 100%;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -73,6 +74,10 @@
 
     &__pagination {
       justify-content: center;
+    }
+
+    &__details {
+      margin-right: 0;
     }
   }
 
@@ -372,7 +377,50 @@
 
 @media(max-width: 576px) {
 
+  .comments {
+
+    &__reply-button {
+      top: -20px;
+    }
+
+    &__main {
+      flex-direction: column;
+    }
+
+    &__image-link {
+      display: none;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__form-container {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &__label {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
   .blog {
+
+    &__additionally {
+      justify-content: center;
+    }
+
+    &__additionally-list {
+      justify-content: center;
+    }
 
     &__link {
       display: flex;
@@ -381,6 +429,10 @@
 
     &__title {
       text-align: center;
+    }
+
+    &__quote {
+      padding: 10px 60px 10px 10px;
     }
 
     &__item {
@@ -403,6 +455,12 @@
   }
 
   .aside {
+
+    &__item {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
     &__inner {
       padding: 15px;
     }
@@ -589,6 +647,44 @@
 }
 
 @media(max-width: 470px) {
+
+  .breadcrumps {
+    &__list {
+      flex-direction: column;
+    }
+
+    &__item {
+      text-align: center;
+      padding-right: 0;
+      padding-bottom: 20px;
+
+      &::after {
+        content: "";
+        background-color: $text-color;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 2px;
+        width: 30px;
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .blog {
+    &__mini-image {
+      float: none;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
   .blog {
     &__statistic {
       flex-direction: column;
