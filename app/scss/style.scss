@@ -1045,8 +1045,11 @@
 
   &__image {
     border: 10px solid $red;
+    max-height: 445px;
+    max-width: 500px;
+    width: 100%;
     min-height: 445px;
-    min-width: 500px;
+    object-fit: cover;
     background-color: #bbbbbb;
   }
 
@@ -1177,6 +1180,7 @@
     justify-content: space-between;
     color: #69798d;
     flex-wrap: wrap;
+    font-size: 14px;
   }
 
   &__likes {
@@ -1482,6 +1486,8 @@
     box-shadow: 0px 12px 20px 0px rgba(255, 58, 70, 0.17);
     max-width: 100px;
     min-height: 90px;
+    max-height: 90px;
+    object-fit: cover;
     margin-bottom: 20px;
   }
 
@@ -1654,6 +1660,7 @@
     background-color: #bbbbbb;
     margin-right: 30px;
     margin-bottom: 30px;
+    object-fit: cover;
   }
 
   &__additionally {
@@ -1875,6 +1882,8 @@
 
   &__news-image {
     min-width: 60px;
+    max-width: 60px;
+    object-fit: cover;
     background-color: #bbbbbb;
     object-fit: cover;
     margin-right: 20px;
@@ -2195,6 +2204,11 @@
     font-size: 15px;
     font-weight: 700;
   }
+}
+
+.running-numbers {
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 @import "media";

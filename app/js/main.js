@@ -1,6 +1,7 @@
 "use strict";
 import slider from './slider';
 import tabs from './tabs';
+import runningNumbers from "./runningNumbers";
 document.addEventListener("DOMContentLoaded", function () {
   slider({
     slider__item: ".expertise__item",
@@ -40,11 +41,42 @@ document.addEventListener("DOMContentLoaded", function () {
     animateSpeed: 500
   });
 
+  runningNumbers({
+    parent: document.querySelectorAll(".discover__counter")[0],
+    speed: 3,
+    triggerHeight: 150,
+    gradually: true,
+    addElementsToScroll: 10
+  });
+
+  runningNumbers({
+    parent: document.querySelectorAll(".discover__counter")[1],
+    speed: 3,
+    triggerHeight: 150,
+    gradually: true,
+    addElementsToScroll: 10
+  });
+
+  runningNumbers({
+    parent: document.querySelectorAll(".discover__counter")[2],
+    speed: 3,
+    triggerHeight: 150,
+    gradually: true,
+    addElementsToScroll: 10
+  });
+
+  runningNumbers({
+    parent: document.querySelectorAll(".discover__counter")[3],
+    speed: 3,
+    triggerHeight: 150,
+    gradually: true,
+    addElementsToScroll: 10,
+    prefix: "k"
+  });
 
   let planButtons = document.querySelectorAll(".plan__button"),
     planItems = document.querySelectorAll(".plan__item"),
     planActiveLine = document.querySelector(".plan__active-line");
-
 
   planButtons.forEach(element => {
     element.addEventListener("click", function (e) {
