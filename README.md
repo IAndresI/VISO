@@ -9,4 +9,4 @@ Just my another project
 [Blog](https://iandresi.github.io/VISO/app/blog.html "Goto Blog")
 
 - ### Blog Details ###
-[Blog Details](https://iandresi.github.io/VISO/app/blog-deatils.html "Blog Details")
+[Blog Details](https://iandresi.github.io/VISO/app/blog-details.html "Blog Details")
